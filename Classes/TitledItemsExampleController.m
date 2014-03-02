@@ -33,6 +33,8 @@
     self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
     self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
+    self.titledTabsView.enabledTitlesFontColor = [UIColor colorWithWhite:1.0f alpha:1.0f];
+    
     
     self.titledTabsView.tabItems = @[mastercardTabItem, paypalTabItem, visaTabItem, wuTabItem, wireTabItem];
 }

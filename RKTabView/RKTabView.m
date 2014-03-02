@@ -64,6 +64,13 @@
     return _titlesFontColor;
 }
 
+- (UIColor *)enabledTitlesFontColor {
+    if (!_enabledTitlesFontColor) {
+        _enabledTitlesFontColor = [self titlesFontColor];
+    }
+    return _enabledTitlesFontColor;
+}
+
 #pragma mark - Private
 
 - (void)cleanTabView {
@@ -249,6 +256,15 @@
             [tab viewWithTag:DARKER_BACKGROUND_VIEW_TAG].backgroundColor = [UIColor colorWithWhite:0 alpha:0.15f];
         } else {
             [tab viewWithTag:DARKER_BACKGROUND_VIEW_TAG].backgroundColor = [UIColor clearColor];
+        }
+    }
+    
+    //selected tab text color
+    if (tabItem.tabState == TabStateEnabled) {
+        if (tabItem.enabledTitleFontColor) {
+            titleLabel.textColor = tabItem.enabledTitleFontColor;
+        } else if (!tabItem.enabledTitleFontColor && self.enabledTitlesFontColor) {
+            titleLabel.textColor = self.enabledTitlesFontColor;
         }
     }
     
